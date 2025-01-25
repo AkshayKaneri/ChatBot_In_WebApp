@@ -1,8 +1,13 @@
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
+import os
+
+
+model_path = "/Users/akshaykaneri/Coding/Projects/ChatBot_In_WebApp/Chat-Bot/python-env/fine_tuned_model"
 
 # Load the fine-tuned model and tokenizer
-tokenizer = GPT2Tokenizer.from_pretrained("./fine_tuned_model")
-model = GPT2LMHeadModel.from_pretrained("./fine_tuned_model")
+fine_tuned_model_path = "/Users/akshaykaneri/Coding/Projects/ChatBot_In_WebApp/Chat-Bot/python-env/fine_tuned_model"
+tokenizer = GPT2Tokenizer.from_pretrained(fine_tuned_model_path)
+model = GPT2LMHeadModel.from_pretrained(fine_tuned_model_path)
 
 # Add the padding token if not already present
 if tokenizer.pad_token is None:
@@ -19,7 +24,11 @@ outputs = model.generate(
     inputs['input_ids'], 
     max_length=50, 
     num_return_sequences=1, 
-    pad_token_id=tokenizer.pad_token_id
+    pad_token_id=tokenizer.pad_token_id,
+    temperature=0.7, 
+    top_k=50,
+    top_p=0.9,
+    repetition_penalty=1.5 
 )
 
 # Decode and print the response
