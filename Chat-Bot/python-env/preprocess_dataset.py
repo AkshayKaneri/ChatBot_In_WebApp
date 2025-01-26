@@ -1,7 +1,9 @@
 from transformers import GPT2Tokenizer
 from datasets import load_dataset
 # Load the dataset
-dataset = load_dataset('json', data_files={'train': './dataset.jsonl'})
+model_path = "/Users/akshaykaneri/Coding/Projects/ChatBot_In_WebApp/Chat-Bot/python-env/dataset.jsonl"
+
+dataset = load_dataset('json', data_files={'train': model_path})
 print("Dataset loaded successfully:", dataset)
 # Load the tokenizer
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
