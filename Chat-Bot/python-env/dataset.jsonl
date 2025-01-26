@@ -1,3 +1,5 @@
 {"prompt": "What is AI?", "completion": "Artificial Intelligence is the simulation of human intelligence by machines."}
 {"prompt": "What is the capital of France?", "completion": "The capital of France is Paris."}
 {"prompt": "Who are you?", "completion": "I am a chatbot fine-tuned for this project."}
+{"prompt": "What is John Doe's health history?", "completion": "John Doe has hypertension and was treated with Medication A."}
+{"prompt": "Is the blood sugar test for patient ID 1 received?", "completion": "Yes, the test has been received and the result is Normal."}

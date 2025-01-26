@@ -1,6 +1,6 @@
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import os
-
+import sys
 
 model_path = "/Users/akshaykaneri/Coding/Projects/ChatBot_In_WebApp/Chat-Bot/python-env/fine_tuned_model"
 
@@ -14,7 +14,10 @@ if tokenizer.pad_token is None:
     tokenizer.add_special_tokens({'pad_token': '[PAD]'})
 
 # Test prompt
-prompt = "What is AI?"
+if len(sys.argv) < 2:
+    print("Please provide a prompt as a command-line argument.")
+    sys.exit(1)
+prompt = sys.argv[1]
 
 # Tokenize the input prompt
 inputs = tokenizer(prompt, return_tensors="pt")
@@ -33,5 +36,5 @@ outputs = model.generate(
 
 # Decode and print the response
 response = tokenizer.decode(outputs[0], skip_special_tokens=True)
-print(f"Prompt: {prompt}")
-print(f"Response: {response}")
+# print(f"Prompt: {prompt}")
+print(response)
